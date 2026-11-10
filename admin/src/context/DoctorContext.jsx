@@ -1,12 +1,175 @@
-import { createContext } from "react";
+
+import { createContext, useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export const DoctorContext = createContext();
 
 const DoctorContextProvider = (props) => {
-    
-    // Doctor specific states and functions will be added here later
+
+    const [dToken, setDToken] = useState(
+        localStorage.getItem('dToken') || ''
+    )
+
+    const [appointments, setAppointments] = useState([])
+    const [dashData, setDashData] = useState(false)
+    const [profileData, setProfileData] = useState(false)
+
+    const backendUrl = import.meta.env.VITE_BACKEND_URL
+
+    // Get doctor's appointments
+    const getAppointments = async () => {
+        try {
+
+            const { data } = await axios.post(
+                backendUrl + '/api/doctor/appointments',
+                {},
+                { headers: { dToken } }
+            )
+
+            if (data.success) {
+                setAppointments(data.appointments.reverse())
+            } else {
+                toast.error(data.message)
+            }
+
+        } catch (error) {
+            toast.error(error.message)
+        }
+    }
+
+
+    // Complete appointment
+    const completeAppointment = async (appointmentId) => {
+        try {
+
+            const { data } = await axios.post(
+                backendUrl + '/api/doctor/complete-appointment',
+                { appointmentId },
+                { headers: { dToken } }
+            )
+
+            if (data.success) {
+                toast.success(data.message)
+                getAppointments()
+            } else {
+                toast.error(data.message)
+            }
+
+        } catch (error) {
+            toast.error(error.message)
+        }
+    }
+
+
+    // Cancel appointment
+    const cancelAppointment = async (appointmentId) => {
+        try {
+
+            const { data } = await axios.post(
+                backendUrl + '/api/doctor/cancel-appointment',
+                { appointmentId },
+                { headers: { dToken } }
+            )
+
+            if (data.success) {
+                toast.success(data.message)
+                getAppointments()
+            } else {
+                toast.error(data.message)
+            }
+
+        } catch (error) {
+            toast.error(error.message)
+        }
+    }
+
+
+    // Get dashboard data
+    const getDashData = async () => {
+        try {
+
+            const { data } = await axios.get(
+                backendUrl + '/api/doctor/dashboard',
+                { headers: { dToken } }
+            )
+
+            if (data.success) {
+                setDashData(data.dashData)
+            } else {
+                toast.error(data.message)
+            }
+
+        } catch (error) {
+            toast.error(error.message)
+        }
+    }
+
+
+    // Get doctor profile
+    const getProfileData = async () => {
+        try {
+
+            const { data } = await axios.get(
+                backendUrl + '/api/doctor/profile',
+                { headers: { dToken } }
+            )
+
+            if (data.success) {
+                setProfileData(data.profileData)
+            } else {
+                toast.error(data.message)
+            }
+
+        } catch (error) {
+            toast.error(error.message)
+        }
+    }
+
+
+    // Update doctor profile
+    const updateProfile = async (event) => {
+        event.preventDefault()
+
+        try {
+
+            const { data } = await axios.post(
+                backendUrl + '/api/doctor/update-profile',
+                {
+                    fees: profileData.fees,
+                    address: JSON.stringify(profileData.address),
+                    available: profileData.available
+                },
+                { headers: { dToken } }
+            )
+
+            if (data.success) {
+                toast.success(data.message)
+                getProfileData()
+            } else {
+                toast.error(data.message)
+            }
+
+        } catch (error) {
+            toast.error(error.message)
+        }
+    }
+
+
     const value = {
-        
+        dToken,
+        setDToken,
+        backendUrl,
+        appointments,
+        getAppointments,
+        completeAppointment,
+        cancelAppointment,
+        dashData,
+        getDashData,
+        profileData,
+        setProfileData,
+        getProfileData,
+        updateProfile
     }
 
     return (
@@ -16,4 +179,4 @@ const DoctorContextProvider = (props) => {
     )
 }
 
-export default DoctorContextProvider;
+export default DoctorContextProvider
