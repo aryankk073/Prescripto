@@ -1,178 +1,74 @@
-<div align="center">
 
-<img src="assets/banner.svg" alt="Prescripto — Doctor Appointment & Healthcare Management Platform" width="100%" />
+# Prescripto — Doctor Appointment & Healthcare Management Platform
 
-<br/>
+A full-stack healthcare platform that connects **patients, doctors, and administrators** through a centralized appointment-management system.
 
-**One platform. Three portals. Zero booking chaos.**
-A full-stack healthcare platform that connects **patients**, **doctors** and **administrators** through a single appointment-management ecosystem.
+Prescripto allows patients to discover doctors, book appointments, make online payments, and manage their bookings. Doctors can manage their schedules, while administrators can manage doctors and appointments.
 
-<br/>
-
-<a href="https://YOUR-PATIENT-APP.vercel.app"><img src="https://img.shields.io/badge/%F0%9F%A9%BA%20Patient%20Portal-Live%20Demo-5F6FFF?style=for-the-badge" alt="Patient Portal" /></a>
-<a href="https://prescripto-admin-navy.vercel.app"><img src="https://img.shields.io/badge/%F0%9F%9B%A1%20Admin%20%26%20Doctor-Live%20Demo-0EA5E9?style=for-the-badge" alt="Admin and Doctor Portal" /></a>
-<a href="https://prescripto-backend-o7lj.onrender.com"><img src="https://img.shields.io/badge/%E2%9A%A1%20REST%20API-Live-10B981?style=for-the-badge" alt="Backend API" /></a>
-
-<br/><br/>
-
-<img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React" />
-<img src="https://img.shields.io/badge/Vite-Build%20Tool-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite" />
-<img src="https://img.shields.io/badge/Tailwind%20CSS-Styling-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
-<img src="https://img.shields.io/badge/Node.js-Runtime-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node.js" />
-<img src="https://img.shields.io/badge/Express-REST%20API-000000?style=flat-square&logo=express&logoColor=white" alt="Express" />
-<img src="https://img.shields.io/badge/MongoDB-Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB" />
-<img src="https://img.shields.io/badge/JWT-Auth-D63AFF?style=flat-square&logo=jsonwebtokens&logoColor=white" alt="JWT" />
-<img src="https://img.shields.io/badge/Razorpay-Payments-0C2451?style=flat-square&logo=razorpay&logoColor=white" alt="Razorpay" />
-<img src="https://img.shields.io/badge/Cloudinary-Media-3448C5?style=flat-square&logo=cloudinary&logoColor=white" alt="Cloudinary" />
-<img src="https://img.shields.io/badge/Vercel%20%7C%20Render-Deployed-000000?style=flat-square&logo=vercel&logoColor=white" alt="Deployed on Vercel and Render" />
-
-<br/>
-
-<img src="https://img.shields.io/github/stars/aryankk073/Prescripto?style=social" alt="Stars" />
-<img src="https://img.shields.io/github/forks/aryankk073/Prescripto?style=social" alt="Forks" />
-<img src="https://img.shields.io/github/last-commit/aryankk073/Prescripto?style=flat-square&color=5F6FFF" alt="Last commit" />
-<img src="https://img.shields.io/github/languages/top/aryankk073/Prescripto?style=flat-square&color=F7DF1E" alt="Top language" />
-
-</div>
-
-<br/>
-
-<p align="center">
-  <a href="#live-demo">Live Demo</a> •
-  <a href="#features">Features</a> •
-  <a href="#screenshots">Screenshots</a> •
-  <a href="#architecture">Architecture</a> •
-  <a href="#api">API</a> •
-  <a href="#getting-started">Get Started</a> •
-  <a href="#deployment">Deployment</a> •
-  <a href="#roadmap">Roadmap</a>
-</p>
+**Built with React, Node.js, Express, MongoDB, and Razorpay.**
 
 ---
 
-<a id="live-demo"></a>
-## 🚀 Live Demo
+## Table of Contents
 
-Everything below is deployed and running in production.
+- [Architecture & Live Deployments](#architecture--live-deployments)
+- [Features](#features)
+- [User Journeys](#user-journeys)
+- [Appointment Scheduling](#appointment-scheduling-engine)
+- [Payment Integration](#payment-integration)
+- [File Uploads](#file-uploads)
+- [Authentication & Security](#authentication--security)
+- [Database Design](#database-design)
+- [API Reference](#api-reference)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Production Deployment](#production-deployment)
+- [Engineering Decisions](#engineering-decisions)
+- [Roadmap](#roadmap)
+- [What I Learned](#what-i-learned)
 
-| | Application | What it does | Link |
-|:-:|---|---|---|
-| 🩺 | **Patient Portal** | Discover doctors, book slots, pay online, manage appointments | [**Open Patient Portal →**](https://prescripto-nu-three.vercel.app/) |
-| 🛡️ | **Admin & Doctor Portal** | Admin: manage doctors & appointments. Doctor: run the day's schedule | [**Open Admin / Doctor Portal →**](https://prescripto-admin-navy.vercel.app) |
-| ⚡ | **Backend REST API** | Centralised Express + MongoDB API serving all three experiences | [**Open API →**](https://prescripto-backend-o7lj.onrender.com) |
-| 💻 | **Source Code** | Full monorepo | [**GitHub →**](https://github.com/aryankk073/Prescripto) |
+---
 
-**Live service status**
+## Architecture & Live Deployments
 
-<p>
-  <img src="https://img.shields.io/website?url=https%3A%2F%2Fprescripto-admin-navy.vercel.app&label=Admin%20Portal&up_message=online&down_message=offline&style=for-the-badge&logo=vercel" alt="Admin portal status" />
-  <img src="https://img.shields.io/website?url=https%3A%2F%2Fprescripto-backend-o7lj.onrender.com&label=Backend%20API&up_message=online&down_message=offline&style=for-the-badge&logo=render" alt="Backend status" />
-</p>
+Prescripto follows a three-tier architecture consisting of independent React frontends, a centralized Express REST API, and external services for database storage, image management, and payments.
 
-> [!NOTE]
-> The backend root endpoint returns `API WORKING` when the service is up.
-> If the backend runs on a free hosting tier, the **first request after a period of inactivity can take a short while** while the server wakes up. Subsequent requests are fast.
+### Live Applications
 
-<details>
-<summary><b>🔑 Demo access (click to expand)</b></summary>
-
-<br/>
-
-| Role | Where to log in | Credentials |
+| Application | Description | Deployment |
 |---|---|---|
-| Patient | Patient Portal → *Create account* | Register with any email — takes 10 seconds |
-| Doctor | Admin / Doctor Portal → click **"Doctor Login?"** under the form | `<!-- add a demo doctor email -->` / `<!-- add password -->` |
-| Admin | Admin / Doctor Portal → default login screen | `<!-- add demo admin email -->` / `<!-- add password -->` |
+| Patient Portal | Browse doctors, book appointments, make payments, and manage bookings | [Open Patient Portal](https://prescripto-nu-three.vercel.app/) |
+| Admin / Doctor Portal | Manage doctors, appointments, availability, and doctor profiles | [Open Admin / Doctor Portal](https://prescripto-admin-navy.vercel.app/login) |
+| Backend REST API | Centralized Express API serving both frontend applications | [Backend API](https://prescripto-backend-o7lj.onrender.com) |
+| Source Code | Complete project repository | [GitHub Repository](https://github.com/aryankk073/Prescripto) |
 
-> Only share **demo** credentials here — never your real admin password.
-
-</details>
-
----
-
-<a id="features"></a>
-## ✨ Features
-
-<table>
-<tr>
-<td width="33%" valign="top">
-
-### 🩺 Patients
-- Browse doctors & filter by **speciality**
-- Rich doctor profiles + related doctors
-- Pick a date and **30-min time slot**
-- Book, view & **cancel** appointments
-- Pay securely with **Razorpay**
-- Edit profile + upload profile photo
-
-</td>
-<td width="33%" valign="top">
-
-### 👨‍⚕️ Doctors
-- Dedicated, JWT-secured login
-- Personal **dashboard** at a glance
-- See all assigned appointments
-- **Complete** or **cancel** appointments
-- View & update own profile
-
-</td>
-<td width="33%" valign="top">
-
-### 🛡️ Admins
-- Secure administrator login
-- Central **admin dashboard**
-- **Add doctors** with image upload
-- Browse the full doctor directory
-- **Toggle doctor availability** on/off
-- View & **cancel** any appointment
-
-</td>
-</tr>
-</table>
-
-### 🔥 Project highlights
-
-| | |
-|---|---|
-| 🧑‍🤝‍🧑 **Three role-based experiences** | Patient, Doctor and Admin interfaces over one shared API |
-| 🔐 **JWT auth + bcrypt** | Protected routes via middleware, hashed passwords |
-| 📅 **Smart slot engine** | 7-day window, 30-minute slots, booked slots hidden automatically |
-| 💳 **Razorpay payments** | Orders created server-side; payment confirmed by asking Razorpay directly |
-| ☁️ **Cloudinary uploads** | Multer → Cloudinary → secure URL saved in MongoDB |
-| 🌍 **Independent deployments** | Two Vercel frontends + Render backend + MongoDB Atlas |
-
----
-
-
-
-<a id="architecture"></a>
-## 🧩 Architecture
-
-Prescripto is a **three-tier** system: independent React frontends talk over HTTPS to one Express REST API, which orchestrates MongoDB, Cloudinary and Razorpay.
+### System Architecture
 
 ```mermaid
 flowchart TB
-    subgraph CLIENT["🖥️ Presentation Layer — Vercel"]
-        P["🩺 Patient Portal<br/>React + Vite"]
-        A["🛡️ Admin Portal<br/>React + Vite"]
-        D["👨‍⚕️ Doctor Portal<br/>React + Vite"]
+    subgraph CLIENT["Presentation Layer — Vercel"]
+        P["Patient Portal<br/>React + Vite"]
+        A["Admin Portal<br/>React + Vite"]
+        D["Doctor Portal<br/>React + Vite"]
     end
 
-    subgraph SERVER["⚙️ Application Layer — Render"]
+    subgraph SERVER["Application Layer — Render"]
         API["Express.js REST API"]
         AUTH["JWT Middleware"]
         UC["User Controllers"]
         DC["Doctor Controllers"]
         AC["Admin Controllers"]
+
         API --> AUTH
         AUTH --> UC
         AUTH --> DC
         AUTH --> AC
     end
 
-    subgraph SERVICES["☁️ Data & External Services"]
+    subgraph SERVICES["Data & External Services"]
         DB[("MongoDB Atlas")]
-        CL["Cloudinary<br/>Image storage"]
+        CL["Cloudinary<br/>Image Storage"]
         PAY["Razorpay<br/>Payments"]
     end
 
@@ -183,77 +79,142 @@ flowchart TB
     UC --> DB
     DC --> DB
     AC --> DB
+
     UC --> CL
     AC --> CL
     UC --> PAY
-
-    classDef client fill:#EEF2FF,stroke:#5F6FFF,color:#1E1B4B;
-    classDef server fill:#ECFEFF,stroke:#0EA5E9,color:#083344;
-    classDef svc fill:#ECFDF5,stroke:#10B981,color:#064E3B;
-    class P,A,D client;
-    class API,AUTH,UC,DC,AC server;
-    class DB,CL,PAY svc;
 ```
+
+### Deployment Architecture
+
+The project is deployed using three independent services connected through a shared backend.
+
+```mermaid
+flowchart LR
+    G[("GitHub Repository")]
+
+    G --> V1["Vercel<br/>Patient Frontend<br/>Root: Frontend"]
+    G --> V2["Vercel<br/>Admin / Doctor Frontend<br/>Root: admin"]
+    G --> R["Render<br/>Backend API<br/>Root: Backend"]
+
+    V1 --> R
+    V2 --> R
+
+    R --> DB[("MongoDB Atlas")]
+    R --> CL["Cloudinary"]
+    R --> RP["Razorpay"]
+```
+
+| Component | Platform | Root Directory |
+|---|---|---|
+| Patient Frontend | Vercel | `Frontend` |
+| Admin / Doctor Frontend | Vercel | `admin` |
+| Backend API | Render | `Backend` |
+| Database | MongoDB Atlas | Managed |
+| Image Storage | Cloudinary | Managed |
+| Payment Gateway | Razorpay | Managed |
+
+### Technology Responsibilities
 
 | Layer | Technology | Responsibility |
 |---|---|---|
-| Patient Frontend | React, Vite, Tailwind CSS | Patient-facing experience |
+| Patient Frontend | React, Vite, Tailwind CSS | Patient-facing interface |
 | Admin / Doctor Frontend | React, Vite, Tailwind CSS | Administrative and doctor interfaces |
 | Routing | React Router | Client-side navigation |
-| State | React Context API | Shared application state |
-| HTTP | Axios | API requests and responses |
-| Backend | Node.js, Express.js | Business logic & REST endpoints |
-| Database | MongoDB Atlas, Mongoose | Persistent application data |
-| Auth | JWT, bcrypt | Authentication & password security |
-| File Storage | Multer, Cloudinary | Image uploads and storage |
+| State Management | React Context API | Shared application state |
+| HTTP Requests | Axios | Frontend-backend communication |
+| Backend | Node.js, Express.js | Business logic and REST APIs |
+| Database | MongoDB Atlas, Mongoose | Persistent data storage |
+| Authentication | JWT, bcrypt | Authentication and password security |
+| File Storage | Multer, Cloudinary | Image upload and storage |
 | Payments | Razorpay | Online payment processing |
 | Hosting | Vercel, Render | Production deployment |
 
 ---
 
-## 🔄 User Journeys
+## Features
 
-<details open>
-<summary><b>🩺 Patient booking journey</b></summary>
+### Patient Portal
+
+- Browse doctors and filter by speciality.
+- View detailed doctor profiles.
+- Explore related doctors.
+- Select appointment dates and available time slots.
+- Book appointments.
+- View and cancel appointments.
+- Make online payments using Razorpay.
+- Update personal profile information.
+- Upload profile images.
+
+### Doctor Portal
+
+- Dedicated doctor login.
+- View personal dashboard.
+- View assigned appointments.
+- Complete appointments.
+- Cancel appointments.
+- View and update personal profile.
+
+### Admin Portal
+
+- Secure administrator login.
+- View administrative dashboard.
+- Add doctors with image uploads.
+- Browse the doctor directory.
+- Change doctor availability.
+- View all appointments.
+- Cancel appointments.
+
+### Project Highlights
+
+| Feature | Implementation |
+|---|---|
+| Role-based experiences | Separate patient, doctor, and admin interfaces |
+| Authentication | JWT-based authentication |
+| Password security | bcrypt password hashing |
+| Appointment scheduling | Seven-day scheduling window with 30-minute slots |
+| Payment integration | Razorpay order creation and payment status verification |
+| Image uploads | Multer and Cloudinary |
+| Centralized backend | One Express API serving both frontend applications |
+| Deployment | Two Vercel frontends and one Render backend |
+
+---
+
+## User Journeys
+
+### Patient Booking Journey
 
 ```mermaid
 flowchart LR
     A([Visit Prescripto]) --> B[Register / Login]
     B --> C[Browse Doctors]
-    C --> D[Pick Speciality]
+    C --> D[Select Speciality]
     D --> E[Open Doctor Profile]
     E --> F[Select Date]
     F --> G[Select Time Slot]
     G --> H[Book Appointment]
     H --> I[Razorpay Payment]
-    I --> J([Manage / Cancel])
-
-    style A fill:#5F6FFF,color:#fff,stroke:#5F6FFF
-    style J fill:#10B981,color:#fff,stroke:#10B981
+    I --> J([Manage / Cancel Appointment])
 ```
 
-</details>
-
-<details>
-<summary><b>🛡️ Admin workflow</b></summary>
+### Admin Workflow
 
 ```mermaid
 flowchart TD
     A([Admin Login]) --> B[Admin Dashboard]
     B --> C[Doctor Management]
     B --> D[Appointment Management]
+
     C --> E[Add Doctor]
     E --> F[Upload Image]
     F --> G[Cloudinary Storage]
-    G --> H[(Doctor saved in MongoDB)]
-    D --> I[View All Appointments]
-    I --> J[Manage Status]
+    G --> H[(Save Doctor in MongoDB)]
+
+    D --> I[View Appointments]
+    I --> J[Manage Appointments]
 ```
 
-</details>
-
-<details>
-<summary><b>👨‍⚕️ Doctor workflow</b></summary>
+### Doctor Workflow
 
 ```mermaid
 flowchart TD
@@ -261,89 +222,129 @@ flowchart TD
     B --> C[View Appointments]
     C --> D[Select Appointment]
     D --> E{Action}
+
     E -->|Done| F[Complete Appointment]
-    E -->|Can't make it| G[Cancel Appointment]
+    E -->|Cancel| G[Cancel Appointment]
+
     B --> H[Manage Profile]
 ```
 
-</details>
-
 ---
 
-## 📅 Appointment Scheduling Engine
+## Appointment Scheduling Engine
 
-Scheduling is the heart of Prescripto. The patient app generates slots dynamically and hides anything already booked.
+Appointment scheduling is one of the core features of Prescripto.
+
+The patient application dynamically generates available appointment slots based on the selected doctor and date.
 
 | Parameter | Value |
 |---|---|
-| 🗓️ Scheduling window | **7 days** |
-| ⏱️ Slot duration | **30 minutes** |
-| 🌅 Start time | **10:00 AM** |
-| 🌙 End time | **9:00 PM** |
-| 🚫 Availability | Computed from existing bookings (`slots_booked`) and the doctor's `available` flag |
+| Scheduling Window | 7 days |
+| Slot Duration | 30 minutes |
+| Start Time | 10:00 AM |
+| End Time | 9:00 PM |
+| Availability | Based on existing bookings and doctor availability |
+
+### Scheduling Workflow
 
 ```mermaid
 flowchart LR
     A[Select Doctor] --> B[Generate 7 Dates]
-    B --> C[Generate 30-min Slots]
+    B --> C[Generate 30-Minute Slots]
     C --> D[Check slots_booked]
-    D --> E[Show Free Slots]
-    E --> F[Patient Picks Slot]
-    F --> G{Backend Validates<br/>doctor available + slot free}
-    G -->|Free| H[Create Appointment]
+    D --> E[Display Available Slots]
+    E --> F[Patient Selects Slot]
+    F --> G{Backend Validation}
+    G -->|Available| H[Create Appointment]
     H --> I[Update Doctor Booked Slots]
-    G -->|Taken| J[Reject Booking]
+    G -->|Already Booked| J[Reject Booking]
 ```
 
-> [!TIP]
-> Availability is always validated on the backend. A natural production upgrade is **atomic booking operations** with database-level conflict prevention — see the [roadmap](#roadmap).
+The frontend generates available slots, but the backend is responsible for validating the booking before creating an appointment.
+
+A future improvement would be implementing atomic booking operations to prevent conflicts when multiple patients attempt to book the same slot simultaneously.
 
 ---
 
-## 💳 Payments
+## Payment Integration
 
-Razorpay handles checkout, and **the backend confirms the result with Razorpay itself** — it fetches the order and only marks the appointment paid when the order status is `paid`. A client-side "success" is never trusted on its own.
+Prescripto integrates Razorpay to support online appointment payments.
+
+The payment workflow involves the frontend, backend, Razorpay, and MongoDB.
+
+### Payment Workflow
 
 ```mermaid
 sequenceDiagram
-    participant P as 🩺 Patient
+    participant P as Patient
     participant F as Frontend
     participant B as Backend
     participant R as Razorpay
     participant DB as MongoDB
 
-    P->>F: Click "Pay Online"
-    F->>B: Request payment order
-    B->>R: Create order
-    R-->>B: Order details
-    B-->>F: Return order
+    P->>F: Click Pay Online
+    F->>B: Request Payment Order
+    B->>R: Create Razorpay Order
+    R-->>B: Return Order Details
+    B-->>F: Return Order Details
+
     F->>R: Open Razorpay Checkout
-    R-->>F: Payment response
+    R-->>F: Payment Response
+
     F->>B: Send razorpay_order_id
-    B->>R: Fetch order status
-    R-->>B: status = paid
-    B->>DB: Mark appointment as paid
-    B-->>F: Payment result
+    B->>R: Fetch Order Status
+    R-->>B: Return Payment Status
+
+    B->>DB: Update Appointment Payment Status
+    B-->>F: Return Payment Result
 ```
 
-## ☁️ File Uploads
+### Important Implementation Details
+
+- Payment orders are created through the backend.
+- Razorpay Checkout is opened from the frontend.
+- The backend fetches the order status directly from Razorpay.
+- An appointment is marked as paid when the fetched order status is `paid`.
+
+The backend does not rely solely on a client-side success response to mark an appointment as paid.
+
+---
+
+## File Uploads
+
+Prescripto uses Multer and Cloudinary to handle image uploads.
+
+### Upload Workflow
 
 ```mermaid
 flowchart LR
     A[Select Image] --> B[FormData]
-    B --> C[Upload Endpoint]
+    B --> C[Upload API Endpoint]
     C --> D[Multer]
     D --> E[Cloudinary]
-    E --> F[Secure URL]
-    F --> G[(Saved in MongoDB)]
-    G --> H[Rendered in App]
+    E --> F[Secure Image URL]
+    F --> G[(MongoDB)]
+    G --> H[Display Image]
 ```
 
-Images live in Cloudinary — MongoDB only stores the lightweight URL.
+### Implementation
+
+1. The frontend sends image data using `FormData`.
+2. Multer processes the uploaded file.
+3. The backend uploads the image to Cloudinary.
+4. Cloudinary returns a secure image URL.
+5. The URL is stored in MongoDB.
+6. The frontend uses the stored URL to display the image.
+
+MongoDB stores the image URL rather than the actual image file.
 
 ---
 
-## 🔐 Authentication & Security
+## Authentication & Security
+
+Prescripto uses JSON Web Tokens (JWT) for authentication and bcrypt for password hashing.
+
+### Authentication Workflow
 
 ```mermaid
 sequenceDiagram
@@ -351,31 +352,38 @@ sequenceDiagram
     participant API as Express API
     participant DB as MongoDB
 
-    C->>API: Submit credentials
-    API->>DB: Find account
-    DB-->>API: Account + hashed password
+    C->>API: Submit Credentials
+    API->>DB: Find Account
+    DB-->>API: Account Details
     API->>API: bcrypt.compare()
-    API->>API: Sign JWT
-    API-->>C: Return token
-    C->>API: Request with token
-    API->>API: Middleware validates JWT
-    API-->>C: Authorized response
+    API->>API: Generate JWT
+    API-->>C: Return Token
+
+    C->>API: Request with JWT
+    API->>API: Validate Token
+    API-->>C: Authorized Response
 ```
 
-| Component | Role |
+### Security Components
+
+| Component | Responsibility |
 |---|---|
-| **JWT** | Token-based authentication for protected routes |
-| **bcrypt** | Password hashing & verification |
-| **Auth middleware** | Guards user, doctor and admin endpoints |
-| **Environment variables** | Secrets stay out of source control |
-| **CORS** | Enables the deployed frontends to call the backend |
-| **Role separation** | Separate auth contexts for admin, doctor and patient |
+| JWT | Token-based authentication |
+| bcrypt | Password hashing and verification |
+| Authentication Middleware | Protects user, doctor, and admin endpoints |
+| Environment Variables | Keeps sensitive configuration out of source control |
+| CORS | Allows deployed frontends to communicate with the backend |
+| Role Separation | Separate authentication contexts for different user roles |
 
 ---
 
-## 🗃️ Database Design
+## Database Design
 
-MongoDB + Mongoose. Appointments link to patients and doctors by ID and also store a **snapshot** of both (`userData`, `docData`), so appointment lists render without extra lookups.
+Prescripto uses MongoDB with Mongoose for database modelling.
+
+Appointments reference both patients and doctors using their IDs. They also store snapshots of patient and doctor information to simplify appointment data retrieval.
+
+### Entity Relationship Diagram
 
 ```mermaid
 erDiagram
@@ -427,170 +435,211 @@ erDiagram
     }
 ```
 
-<details>
-<summary><b>📋 Field reference</b></summary>
+### Main Collections
 
-<br/>
+**User**
 
-**User** — `name`, `email` (unique), `password` (hashed), `image`, `phone`, `address`, `dob`, `gender` (sensible defaults for optional profile fields)
+- `name`
+- `email`
+- `password`
+- `image`
+- `phone`
+- `address`
+- `dob`
+- `gender`
 
-**Doctor** — `name`, `email`, `password` (hashed), `image`, `speciality`, `degree`, `experience`, `about`, `available`, `fees`, `address`, `date`, `slots_booked`
+**Doctor**
 
-**Appointment** — `userId`, `docId`, `slotDate`, `slotTime`, `userData`, `docData`, `amount`, `date`, `cancelled`, `payment`, `isCompleted`
+- `name`
+- `email`
+- `password`
+- `image`
+- `speciality`
+- `degree`
+- `experience`
+- `about`
+- `available`
+- `fees`
+- `address`
+- `date`
+- `slots_booked`
 
-> Always treat the model files in [`Backend/models`](Backend/models) as the source of truth for exact field names.
+**Appointment**
 
-</details>
+- `userId`
+- `docId`
+- `slotDate`
+- `slotTime`
+- `userData`
+- `docData`
+- `amount`
+- `date`
+- `cancelled`
+- `payment`
+- `isCompleted`
+
+The model files inside `Backend/models` are the source of truth for the exact schema definitions.
 
 ---
 
-<a id="api"></a>
-## 🔌 API Reference
+## API Reference
 
-**Base URL**
+### Base URL
 
 ```text
 https://prescripto-backend-o7lj.onrender.com
 ```
 
-| Route group | Base path | Responsibility |
+### Route Groups
+
+| Route Group | Base Path | Responsibility |
 |---|---|---|
-| 🩺 User | `/api/user` | Registration, auth, profile, appointments |
-| 👨‍⚕️ Doctor | `/api/doctor` | Doctor listing, auth, doctor operations |
-| 🛡️ Admin | `/api/admin` | Admin auth & administrative operations |
+| User | `/api/user` | Registration, login, profiles, appointments and payments |
+| Doctor | `/api/doctor` | Doctor listing, login, appointments and profile |
+| Admin | `/api/admin` | Admin login and administrative operations |
 
-<details>
-<summary><b>🩺 User endpoints</b> <sub>(protected = JWT required)</sub></summary>
+### User Endpoints
 
-| Endpoint | Method | Auth | Purpose |
-|---|:-:|:-:|---|
-| `/api/user/register` | `POST` | — | Register patient |
-| `/api/user/login` | `POST` | — | Patient login |
-| `/api/user/get-profile` | `GET` | 🔒 | Retrieve patient profile |
-| `/api/user/update-profile` | `POST` | 🔒 | Update profile (+ image upload) |
-| `/api/user/book-appointment` | `POST` | 🔒 | Book an appointment |
-| `/api/user/appointments` | `GET` | 🔒 | List the patient's appointments |
-| `/api/user/cancel-appointment` | `POST` | 🔒 | Cancel an appointment |
-| `/api/user/payment-razorpay` | `POST` | 🔒 | Create a Razorpay order |
-| `/api/user/verifyRazorpay` | `POST` | 🔒 | Confirm payment & mark appointment paid |
+Protected endpoints require a valid JWT.
 
-</details>
+| Endpoint | Method | Authentication | Purpose |
+|---|---|---|---|
+| `/api/user/register` | POST | No | Register patient |
+| `/api/user/login` | POST | No | Patient login |
+| `/api/user/get-profile` | GET | Yes | Retrieve patient profile |
+| `/api/user/update-profile` | POST | Yes | Update patient profile |
+| `/api/user/book-appointment` | POST | Yes | Book appointment |
+| `/api/user/appointments` | GET | Yes | List patient appointments |
+| `/api/user/cancel-appointment` | POST | Yes | Cancel appointment |
+| `/api/user/payment-razorpay` | POST | Yes | Create Razorpay order |
+| `/api/user/verifyRazorpay` | POST | Yes | Verify payment status |
 
-<details>
-<summary><b>👨‍⚕️ Doctor endpoints</b></summary>
+### Doctor Endpoints
 
-| Endpoint | Method | Auth | Purpose |
-|---|:-:|:-:|---|
-| `/api/doctor/list` | `GET` | — | Public doctor listing |
-| `/api/doctor/login` | `POST` | — | Doctor login |
-| `/api/doctor/appointments` | `POST` | 🔒 | Doctor's appointments |
-| `/api/doctor/complete-appointment` | `POST` | 🔒 | Mark appointment completed |
-| `/api/doctor/cancel-appointment` | `POST` | 🔒 | Cancel appointment |
-| `/api/doctor/dashboard` | `GET` | 🔒 | Dashboard data |
-| `/api/doctor/profile` | `GET` | 🔒 | Retrieve doctor profile |
-| `/api/doctor/update-profile` | `POST` | 🔒 | Update doctor profile |
+| Endpoint | Method | Authentication | Purpose |
+|---|---|---|---|
+| `/api/doctor/list` | GET | No | Get doctor listing |
+| `/api/doctor/login` | POST | No | Doctor login |
+| `/api/doctor/appointments` | POST | Yes | Get doctor's appointments |
+| `/api/doctor/complete-appointment` | POST | Yes | Complete appointment |
+| `/api/doctor/cancel-appointment` | POST | Yes | Cancel appointment |
+| `/api/doctor/dashboard` | GET | Yes | Get dashboard data |
+| `/api/doctor/profile` | GET | Yes | Get doctor profile |
+| `/api/doctor/update-profile` | POST | Yes | Update doctor profile |
 
-</details>
+### Admin Endpoints
 
-<details>
-<summary><b>🛡️ Admin endpoints</b></summary>
+| Endpoint | Method | Authentication | Purpose |
+|---|---|---|---|
+| `/api/admin/login` | POST | No | Admin login |
+| `/api/admin/add-doctor` | POST | Yes | Add doctor |
+| `/api/admin/all-doctors` | POST | Yes | Get all doctors |
+| `/api/admin/change-availability` | POST | Yes | Change doctor availability |
+| `/api/admin/all-appointments` | POST | Yes | Get all appointments |
+| `/api/admin/cancel-appointment` | POST | Yes | Cancel appointment |
+| `/api/admin/dashboard` | GET | Yes | Get dashboard data |
 
-| Endpoint | Method | Auth | Purpose |
-|---|:-:|:-:|---|
-| `/api/admin/login` | `POST` | — | Admin login |
-| `/api/admin/add-doctor` | `POST` | 🔒 | Add a doctor (+ image upload) |
-| `/api/admin/all-doctors` | `POST` | 🔒 | List all doctors |
-| `/api/admin/change-availability` | `POST` | 🔒 | Toggle a doctor's availability |
-| `/api/admin/all-appointments` | `POST` | 🔒 | List all appointments |
-| `/api/admin/cancel-appointment` | `POST` | 🔒 | Cancel any appointment |
-| `/api/admin/dashboard` | `GET` | 🔒 | Dashboard data |
+For exact implementation details, refer to `Backend/routes` and `Backend/controllers`.
 
-</details>
+### Testing the API
 
-> [!NOTE]
-> Source of truth: [`Backend/routes`](Backend/routes).
-
-**Try it:**
+Check whether the backend is running:
 
 ```bash
-# health check
 curl https://prescripto-backend-o7lj.onrender.com
-# → API WORKING
+```
 
-# list all doctors
+Expected response:
+
+```text
+API WORKING
+```
+
+Get the doctor listing:
+
+```bash
 curl https://prescripto-backend-o7lj.onrender.com/api/doctor/list
 ```
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-<div align="center">
+### Frontend
 
-<img src="https://skillicons.dev/icons?i=react,vite,tailwind,nodejs,express,mongodb,js,vercel,git,github,postman,vscode&perline=12" alt="Tech stack icons" />
-
-</div>
-
-<table>
-<tr>
-<td valign="top" width="33%">
-
-**Frontend**
 - React 19
 - Vite
-- React Router
+- React Router DOM
 - Tailwind CSS
 - Axios
-- Context API
+- React Context API
 
-</td>
-<td valign="top" width="33%">
+### Backend
 
-**Backend**
-- Node.js & Express.js
-- Mongoose & MongoDB Atlas
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
 - JSON Web Tokens
 - bcrypt
 - Multer
-- Validator, CORS, dotenv
+- Validator
+- CORS
+- dotenv
 
-</td>
-<td valign="top" width="33%">
+### Integrations and Deployment
 
-**Integrations & Ops**
 - Cloudinary — image storage
-- Razorpay — payments
+- Razorpay — payment processing
 - Vercel — frontend hosting
 - Render — backend hosting
-- Git & GitHub
-
-</td>
-</tr>
-</table>
+- Git and GitHub — version control
 
 ---
 
-<details>
-<summary><b>🧭 Frontend routes</b></summary>
+## Frontend Routes
 
-<br/>
+### Patient Application
 
-**Patient app** — `/` · `/doctors` · `/doctors/:speciality` · `/login` · `/about` · `/contact` · `/my-profile` · `/my-appointments` · `/appointment/:docId`
+| Route | Description |
+|---|---|
+| `/` | Homepage |
+| `/doctors` | All doctors |
+| `/doctors/:speciality` | Doctors by speciality |
+| `/login` | Patient login and registration |
+| `/about` | About page |
+| `/contact` | Contact page |
+| `/my-profile` | Patient profile |
+| `/my-appointments` | Patient appointments |
+| `/appointment/:docId` | Doctor appointment booking |
 
-**Admin** — `/admin-dashboard` · `/all-appointments` · `/add-doctor` · `/doctor-list`
+### Admin Application
 
-**Doctor** — `/doctor-dashboard` · `/doctor-appointments` · `/doctor-profile`
+| Route | Description |
+|---|---|
+| `/login` | Admin login |
+| `/admin-dashboard` | Admin dashboard |
+| `/all-appointments` | Appointment management |
+| `/add-doctor` | Add doctor |
+| `/doctor-list` | Doctor directory |
 
-</details>
+### Doctor Application
+
+| Route | Description |
+|---|---|
+| `/login` | Doctor login |
+| `/doctor-dashboard` | Doctor dashboard |
+| `/doctor-appointments` | Doctor appointments |
+| `/doctor-profile` | Doctor profile |
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 Prescripto/
 │
-├── Frontend/                    # 🩺 Patient application
+├── Frontend/                     # Patient application
 │   ├── public/
 │   └── src/
 │       ├── assets/
@@ -600,7 +649,7 @@ Prescripto/
 │       ├── App.jsx
 │       └── main.jsx
 │
-├── admin/                       # 🛡️ Admin + 👨‍⚕️ Doctor application
+├── admin/                        # Admin and Doctor application
 │   ├── public/
 │   └── src/
 │       ├── assets/
@@ -612,46 +661,160 @@ Prescripto/
 │       ├── App.jsx
 │       └── main.jsx
 │
-├── Backend/                     # ⚡ Centralised REST API
-│   ├── config/                  #    mongodb.js, cloudinary.js
+├── Backend/                      # Centralized REST API
+│   ├── config/
+│   │   ├── mongodb.js
+│   │   └── cloudinary.js
 │   ├── controllers/
 │   ├── middleware/
 │   ├── models/
 │   ├── routes/
 │   └── server.js
 │
-├── assets/                      # README banner
-├── docs/screenshots/            # README screenshots
 └── README.md
 ```
 
 ---
 
-<a id="getting-started"></a>
-## ⚡ Getting Started
+## Getting Started
 
 ### Prerequisites
 
-Node.js · npm · Git · a MongoDB Atlas account · a Cloudinary account · a Razorpay account (test mode is fine)
+Install the following:
 
-### 1 · Clone
+- Node.js
+- npm
+- Git
+- MongoDB Atlas account
+- Cloudinary account
+- Razorpay account (test mode is sufficient)
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/aryankk073/Prescripto.git
+
 cd Prescripto
 ```
 
-### 2 · Backend
+### 2. Backend Setup
 
 ```bash
 cd Backend
+
 npm install
 ```
 
-Create `Backend/.env`:
+Create a `.env` file inside the `Backend` directory.
 
 ```env
 PORT=4000
+
+MONGODB_URI=your_mongodb_connection_string
+
+JWT_SECRET=your_jwt_secret
+
+ADMIN_EMAIL=your_admin_email
+ADMIN_PASSWORD=your_admin_password
+
+CLOUDINARY_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_SECRET_KEY=your_cloudinary_secret
+
+RAZORPAY_KEY_ID=your_razorpay_key_id
+RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+
+CURRENCY=INR
+```
+
+Start the backend:
+
+```bash
+npm run server
+```
+
+The backend runs at:
+
+```text
+http://localhost:4000
+```
+
+For production:
+
+```bash
+npm start
+```
+
+### 3. Patient Frontend Setup
+
+Open another terminal:
+
+```bash
+cd Frontend
+
+npm install
+```
+
+Create a `.env` file inside `Frontend`.
+
+```env
+VITE_BACKEND_URL=http://localhost:4000
+
+VITE_RAZORPAY_KEY_ID=your_razorpay_key_id
+```
+
+Start the frontend:
+
+```bash
+npm run dev
+```
+
+### 4. Admin / Doctor Frontend Setup
+
+Open another terminal:
+
+```bash
+cd admin
+
+npm install
+```
+
+Create a `.env` file inside `admin`.
+
+```env
+VITE_BACKEND_URL=http://localhost:4000
+```
+
+Start the application:
+
+```bash
+npm run dev
+```
+
+### Important Notes
+
+- Run the backend and both frontend applications in separate terminals.
+- Ensure the environment variable names match the application configuration.
+- Never commit `.env` files.
+- Only expose the Razorpay Key ID in the frontend. Never expose the Key Secret.
+
+---
+
+## Production Deployment
+
+Prescripto is deployed through three independent services.
+
+| Application | Hosting Platform | Root Directory |
+|---|---|---|
+| Patient Frontend | Vercel | `Frontend` |
+| Admin / Doctor Frontend | Vercel | `admin` |
+| Backend | Render | `Backend` |
+
+### Backend Environment Variables
+
+Configure these variables in the Render dashboard:
+
+```env
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 
@@ -664,169 +827,95 @@ CLOUDINARY_SECRET_KEY=your_cloudinary_secret
 
 RAZORPAY_KEY_ID=your_razorpay_key_id
 RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+
 CURRENCY=INR
 ```
 
-```bash
-npm run server        # dev (nodemon) → http://localhost:4000
-npm start             # production (what Render runs)
-```
+Render supplies the `PORT` environment variable automatically.
 
-### 3 · Patient frontend
+### Patient Frontend Environment Variables
 
-```bash
-cd ../Frontend
-npm install
-cat > .env << 'EOF'
-VITE_BACKEND_URL=http://localhost:4000
-VITE_RAZORPAY_KEY_ID=your_razorpay_key_id
-EOF
-npm run dev
-```
-
-> Use only the **Key ID** (public) in the frontend — never the Key Secret.
-
-### 4 · Admin / Doctor frontend
-
-```bash
-cd ../admin
-npm install
-echo "VITE_BACKEND_URL=http://localhost:4000" > .env
-npm run dev
-```
-
-> [!IMPORTANT]
-> Run the backend and both frontends in **separate terminals**, and make sure the env variable names match your actual app configuration. Never commit `.env` files.
-
----
-
-<a id="deployment"></a>
-## 🌍 Deployment
-
-Three independent deployments, one shared database.
-
-```mermaid
-flowchart LR
-    G[("🐙 GitHub<br/>Repository")]
-    G --> V1["▲ Vercel<br/>Patient Frontend<br/><sub>root: Frontend</sub>"]
-    G --> V2["▲ Vercel<br/>Admin / Doctor<br/><sub>root: admin</sub>"]
-    G --> R["🟣 Render<br/>Backend API<br/><sub>root: Backend</sub>"]
-
-    V1 --> R
-    V2 --> R
-    R --> DB[("🍃 MongoDB Atlas")]
-    R --> CL["☁️ Cloudinary"]
-    R --> RP["💳 Razorpay"]
-```
-
-| Component | Platform | Root directory |
-|---|---|---|
-| Patient Frontend | Vercel | `Frontend` |
-| Admin / Doctor App | Vercel | `admin` |
-| Backend API | Render | `Backend` |
-| Database | MongoDB Atlas | Managed |
-| Image storage | Cloudinary | Managed |
-| Payments | Razorpay | Managed |
-
-<details>
-<summary><b>🔧 Production environment variables</b></summary>
-
-<br/>
-
-**Backend (Render)** — set in the Render dashboard
-
-`MONGODB_URI` · `JWT_SECRET` · `ADMIN_EMAIL` · `ADMIN_PASSWORD` · `CLOUDINARY_NAME` · `CLOUDINARY_API_KEY` · `CLOUDINARY_SECRET_KEY` · `RAZORPAY_KEY_ID` · `RAZORPAY_KEY_SECRET` · `CURRENCY`
-*(Render supplies `PORT` automatically.)*
-
-**Patient frontend (Vercel)**
+Configure these in the Vercel dashboard:
 
 ```env
 VITE_BACKEND_URL=https://prescripto-backend-o7lj.onrender.com
+
 VITE_RAZORPAY_KEY_ID=your_razorpay_key_id
 ```
 
-**Admin / Doctor frontend (Vercel)**
+### Admin / Doctor Frontend Environment Variables
+
+Configure these in the Vercel dashboard:
 
 ```env
 VITE_BACKEND_URL=https://prescripto-backend-o7lj.onrender.com
 ```
 
-</details>
+After changing frontend environment variables, trigger a new Vercel deployment.
 
 ---
 
-## 🧠 Engineering Decisions
+## Engineering Decisions
 
-| Decision | Why it matters |
+| Decision | Reason |
 |---|---|
-| **Separation of concerns** | Routes, controllers, middleware, models and config are split — easier to test, read and extend |
-| **Independent frontends** | Patient and admin/doctor apps deploy separately with role-specific routing & context |
-| **Centralised API** | Business rules live server-side once, not duplicated across three UIs |
-| **Secrets stay on the server** | Cloudinary & Razorpay are integrated through the backend, not the browser |
-| **Snapshot + reference** | Appointments store patient/doctor IDs plus a data snapshot, keeping list views fast |
+| Separation of concerns | Routes, controllers, middleware, models, and configuration are maintained separately |
+| Independent frontends | Patient and admin/doctor applications can be deployed independently |
+| Centralized backend | Business logic is maintained in one API instead of being duplicated |
+| Server-side integrations | Cloudinary and Razorpay operations are handled through the backend |
+| JWT authentication | Supports protected routes and authenticated API requests |
+| Appointment snapshots | Appointment documents store patient and doctor information alongside their IDs |
 
 ---
 
-<a id="roadmap"></a>
-## 🗺️ Roadmap
+## Roadmap
 
-- [ ] 📧 Email & SMS appointment notifications
-- [ ] ⏰ Automated appointment reminders
-- [ ] 🗓️ Doctor availability calendar with recurring schedules
-- [ ] 🔴 Real-time appointment status updates
-- [ ] 🔒 Stronger concurrency control for simultaneous slot booking
-- [ ] 🔁 Razorpay signature verification & webhook-based payment reconciliation
-- [ ] 🌐 Restrict CORS to the known frontend origins
-- [ ] 💸 Refund processing & payment history
-- [ ] 🔎 Advanced doctor search & filtering
-- [ ] 📊 Patient history & doctor performance analytics
-- [ ] 🧪 Automated tests (Jest / Vitest) + API integration tests
-- [ ] 📚 Swagger / OpenAPI documentation
-- [ ] 🪵 Centralised logging & monitoring
-- [ ] 🚦 Rate limiting & hardened API security
-- [ ] 🐳 Docker-based dev & deployment
-- [ ] ⚙️ CI/CD with GitHub Actions
+Potential improvements for future versions:
 
----
-
-## 🎓 What I Learned
-
-- Structuring a multi-application full-stack repository
-- Building RESTful APIs with Express.js
-- Designing MongoDB schemas and document relationships
-- JWT authentication and protected routes
-- Shared React state with the Context API
-- Implementing appointment scheduling & booking workflows
-- Integrating third-party payments (Razorpay)
-- Handling image uploads with Multer + Cloudinary
-- Debugging frontend ↔ backend integration (CORS, env, deployment)
-- Managing environment variables across local and production
-- Deploying separate frontends and a central backend
+- [ ] Email and SMS appointment notifications
+- [ ] Automated appointment reminders
+- [ ] Doctor availability calendar with recurring schedules
+- [ ] Real-time appointment status updates
+- [ ] Stronger concurrency control for simultaneous slot booking
+- [ ] Razorpay signature verification and webhook-based reconciliation
+- [ ] Restrict CORS to known frontend origins
+- [ ] Refund processing and payment history
+- [ ] Advanced doctor search and filtering
+- [ ] Patient history and doctor performance analytics
+- [ ] Automated unit and API integration tests
+- [ ] Swagger / OpenAPI documentation
+- [ ] Centralized logging and monitoring
+- [ ] Rate limiting and additional API security
+- [ ] Docker-based development and deployment
+- [ ] CI/CD using GitHub Actions
 
 ---
 
-## 👤 Author
+## What I Learned
 
-<table>
-<tr>
-<td>
+Through building and deploying Prescripto, I gained practical experience with:
+
+- Structuring a multi-application full-stack repository.
+- Building REST APIs using Node.js and Express.
+- Designing MongoDB schemas and document relationships.
+- Implementing JWT authentication and protected routes.
+- Managing shared React state using Context API.
+- Building appointment scheduling and booking workflows.
+- Integrating Razorpay for online payments.
+- Handling image uploads using Multer and Cloudinary.
+- Debugging frontend-backend integration issues.
+- Managing environment variables across development and production.
+- Deploying independent frontend applications and a centralized backend.
+
+---
+
+## Author
 
 **Aryan Kumar**
 
-[![GitHub](https://img.shields.io/badge/GitHub-aryankk073-181717?style=for-the-badge&logo=github)](https://github.com/aryankk073)
-
-
-</td>
-</tr>
-</table>
+- GitHub: [aryankk073](https://github.com/aryankk073)
+- Project Repository: [Prescripto](https://github.com/aryankk073/Prescripto)
 
 ---
 
-<div align="center">
-
-### ⭐ If you like Prescripto, give it a star — it really helps!
-
 **Prescripto — Bringing Patients, Doctors, and Healthcare Management Together.**
-
-
-</div>
