@@ -1,6 +1,6 @@
 
 import React, { useContext } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
 import Login from './pages/login.jsx'
 
@@ -26,87 +26,61 @@ const App = () => {
 
     const isAuthenticated = aToken || dToken
 
-    return isAuthenticated ? (
+    return (
+        <Routes>
 
-        <div className='bg-[#F8F9FD]'>
+            {/* Login Route */}
+            <Route
+                path='/login'
+                element={!isAuthenticated ? <Login /> : <Navigate to='/' />}
+            />
 
-            <Navbar />
+            {/* Unauthenticated users */}
+            {!isAuthenticated && (
+                <Route path='*' element={<Navigate to='/login' />} />
+            )}
 
-            <div className='flex items-start'>
+            {/* Authenticated users */}
+            {isAuthenticated && (
+                <Route path='*' element={
+                    <div className='bg-[#F8F9FD]'>
+                        <Navbar />
 
-                <Sidebar />
+                        <div className='flex items-start'>
+                            <Sidebar />
 
-                <div className='flex-1 min-h-[90vh]'>
+                            <div className='flex-1 min-h-[90vh]'>
+                                <Routes>
 
-                    <Routes>
+                                    {/* Admin Routes */}
+                                    {aToken && (
+                                        <>
+                                            <Route path='/' element={<AdminDashboard />} />
+                                            <Route path='/admin-dashboard' element={<AdminDashboard />} />
+                                            <Route path='/all-appointments' element={<AllAppointments />} />
+                                            <Route path='/add-doctor' element={<AddDoctor />} />
+                                            <Route path='/doctor-list' element={<DoctorsList />} />
+                                        </>
+                                    )}
 
-                        {/* Admin Routes */}
-                        {aToken && (
-                            <>
-                                <Route
-                                    path='/'
-                                    element={<AdminDashboard />}
-                                />
+                                    {/* Doctor Routes */}
+                                    {dToken && (
+                                        <>
+                                            <Route path='/' element={<DoctorDashboard />} />
+                                            <Route path='/doctor-dashboard' element={<DoctorDashboard />} />
+                                            <Route path='/doctor-appointments' element={<DoctorAppointments />} />
+                                            <Route path='/doctor-profile' element={<DoctorProfile />} />
+                                        </>
+                                    )}
 
-                                <Route
-                                    path='/admin-dashboard'
-                                    element={<AdminDashboard />}
-                                />
+                                </Routes>
+                            </div>
+                        </div>
+                    </div>
+                } />
+            )}
 
-                                <Route
-                                    path='/all-appointments'
-                                    element={<AllAppointments />}
-                                />
-
-                                <Route
-                                    path='/add-doctor'
-                                    element={<AddDoctor />}
-                                />
-
-                                <Route
-                                    path='/doctor-list'
-                                    element={<DoctorsList />}
-                                />
-                            </>
-                        )}
-
-                        {/* Doctor Routes */}
-                        {dToken && (
-                            <>
-                                <Route
-                                    path='/'
-                                    element={<DoctorDashboard />}
-                                />
-
-                                <Route
-                                    path='/doctor-dashboard'
-                                    element={<DoctorDashboard />}
-                                />
-
-                                <Route
-                                    path='/doctor-appointments'
-                                    element={<DoctorAppointments />}
-                                />
-
-                                <Route
-                                    path='/doctor-profile'
-                                    element={<DoctorProfile />}
-                                />
-                            </>
-                        )}
-
-                    </Routes>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    ) : (
-
-        <Login />
-
+        </Routes>
     )
 }
 
