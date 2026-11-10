@@ -143,64 +143,7 @@ Everything below is deployed and running in production.
 
 ---
 
-<a id="screenshots"></a>
-## 📸 Screenshots
 
-### Patient Portal
-
-<table>
-<tr>
-<td width="50%"><img src="docs/screenshots/patient-home.png" alt="Patient home page" /><br/><sub><b>Home</b> — speciality menu & top doctors</sub></td>
-<td width="50%"><img src="docs/screenshots/patient-doctors.png" alt="Doctors listing" /><br/><sub><b>Doctors</b> — browse & filter by speciality</sub></td>
-</tr>
-<tr>
-<td width="50%"><img src="docs/screenshots/patient-booking.png" alt="Appointment booking" /><br/><sub><b>Booking</b> — date picker & available slots</sub></td>
-<td width="50%"><img src="docs/screenshots/patient-appointments.png" alt="My appointments" /><br/><sub><b>My Appointments</b> — pay, view & cancel</sub></td>
-</tr>
-<tr>
-<td width="50%"><img src="docs/screenshots/payment-razorpay.png" alt="Razorpay checkout" /><br/><sub><b>Payments</b> — Razorpay checkout</sub></td>
-<td width="50%"><img src="docs/screenshots/patient-profile.png" alt="Patient profile" /><br/><sub><b>Profile</b> — details & photo upload</sub></td>
-</tr>
-</table>
-
-### Admin Portal
-
-<table>
-<tr>
-<td width="50%"><img src="docs/screenshots/admin-dashboard.png" alt="Admin dashboard" /><br/><sub><b>Dashboard</b> — platform overview</sub></td>
-<td width="50%"><img src="docs/screenshots/admin-add-doctor.png" alt="Add doctor" /><br/><sub><b>Add Doctor</b> — profile + image upload</sub></td>
-</tr>
-<tr>
-<td width="50%"><img src="docs/screenshots/admin-doctors.png" alt="Doctors list" /><br/><sub><b>Doctors</b> — full directory</sub></td>
-<td width="50%"><img src="docs/screenshots/admin-appointments.png" alt="All appointments" /><br/><sub><b>Appointments</b> — every booking, one view</sub></td>
-</tr>
-</table>
-
-### Doctor Portal
-
-<table>
-<tr>
-<td width="50%"><img src="docs/screenshots/doctor-dashboard.png" alt="Doctor dashboard" /><br/><sub><b>Dashboard</b> — today at a glance</sub></td>
-<td width="50%"><img src="docs/screenshots/doctor-appointments.png" alt="Doctor appointments" /><br/><sub><b>Appointments</b> — complete or cancel</sub></td>
-</tr>
-</table>
-
-### 🌐 In production
-
-Proof it's really deployed — every moving part of the stack, live.
-
-<table>
-<tr>
-<td width="50%"><img src="docs/screenshots/deploy-vercel.png" alt="Vercel deployments" /><br/><sub><b>Vercel</b> — patient & admin frontends</sub></td>
-<td width="50%"><img src="docs/screenshots/deploy-render.png" alt="Render backend service" /><br/><sub><b>Render</b> — backend API service</sub></td>
-</tr>
-<tr>
-<td width="50%"><img src="docs/screenshots/deploy-mongodb.png" alt="MongoDB Atlas cluster" /><br/><sub><b>MongoDB Atlas</b> — managed database</sub></td>
-<td width="50%"><img src="docs/screenshots/deploy-api-working.png" alt="API WORKING response" /><br/><sub><b>Health check</b> — <code>API WORKING</code></sub></td>
-</tr>
-</table>
-
----
 
 <a id="architecture"></a>
 ## 🧩 Architecture
@@ -869,11 +812,9 @@ VITE_BACKEND_URL=https://prescripto-backend-o7lj.onrender.com
 <td>
 
 **Aryan Kumar**
-Integrated M.Sc. Mathematics & Computing
-Birla Institute of Technology, Mesra
 
 [![GitHub](https://img.shields.io/badge/GitHub-aryankk073-181717?style=for-the-badge&logo=github)](https://github.com/aryankk073)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/YOUR-LINKEDIN-ID)
+
 
 </td>
 </tr>
@@ -887,6 +828,5 @@ Birla Institute of Technology, Mesra
 
 **Prescripto — Bringing Patients, Doctors, and Healthcare Management Together.**
 
-<sub>Built with ❤️ using React, Node.js, Express & MongoDB</sub>
 
 </div>
